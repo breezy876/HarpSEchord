@@ -1,0 +1,177 @@
+﻿<StackPanel
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Hscm.UI"
+             xmlns:System="clr-namespace:System;assembly=mscorlib" xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" xmlns:cmd="http://www.galasoft.ch/mvvmlight" x:Class="Hscm.UI.FfxivControl"
+             mc:Ignorable="d"   >
+
+    <StackPanel.Resources>
+
+        <local:BoolToVisibilityConverter
+            x:Key="BoolToVisibilityConverter"
+            FalseValue="Collapsed"
+            TrueValue="Visible" />
+
+        <local:InverseBoolToVisibilityConverter
+            x:Key="InverseBoolToVisibilityConverter"
+            FalseValue="Collapsed"
+            TrueValue="Visible" />
+
+        <SolidColorBrush x:Key="ButtonHoverBackgroundBrush" Color="#30ADD8E6" />
+
+        <Style x:Key="FlatButtonStyle" TargetType="Button">
+            <Setter Property="Foreground" Value="{StaticResource ForegroundBrush}" />
+            <Setter Property="FontSize" Value="14.667" />
+            <Setter Property="FontFamily" Value="Segoe UI" />
+            <Setter Property="Padding" Value="2,0,2,0" />
+            <Setter Property="MinHeight" Value="20" />
+            <Setter Property="MinWidth" Value="20" />
+            <Setter Property="BorderThickness" Value="0"></Setter>
+            <Setter Property="Background" Value="Transparent"></Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid>
+                            <Border x:Name="border" CornerRadius="2" BorderThickness="1" BorderBrush="{StaticResource ButtonPressedBorderBrush}" Visibility="Collapsed"></Border>
+                            <Rectangle x:Name="rect" Fill="{StaticResource ButtonHoverBackgroundBrush}" Stroke="Transparent" StrokeThickness="0" Visibility="Collapsed"/>
+                            <ContentControl x:Name="ContentControl" Foreground="{TemplateBinding Foreground}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
+                                <ContentPresenter x:Name="contentPresenter" />
+                            </ContentControl>
+                        </Grid>
+               
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="Visibility" Value="Visible"/>
+                                <Setter TargetName="rect" Property="Visibility" Value="Visible"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+       
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        
+    </StackPanel.Resources>
+
+
+    <StackPanel Orientation="Horizontal" Background="#FFF0F6FF">
+        <Image Source="../../Images/ffxiv.ico" Height="20" Width="20" Margin="5,0,0,0"/>
+
+        <Label 
+            FontSize="11"
+            Foreground="#FF1D2F3D"
+        FontWeight="SemiBold"
+            Content="{Binding HeaderText}"></Label>
+    </StackPanel>
+
+
+
+    <Grid Background="#FFF0F6FF" VerticalAlignment="Stretch">
+        <!--<Border
+                            Margin="0,0,0,0"
+                BorderBrush="{DynamicResource {x:Static SystemColors.ControlDarkBrushKey}}" 
+                BorderThickness="1"
+                HorizontalAlignment="Stretch"
+                Height="1" 
+                VerticalAlignment="Top"/>-->
+
+        <StackPanel Orientation="Horizontal" Height="30">
+            <Label
+                                            Margin="0,5,0,0"
+                                    Content="Plugin config path"
+                                    Foreground="#FF1D2F3D"
+                                   FontSize="10">
+
+            </Label>
+
+            <TextBox 
+                
+                ToolTip="The HSC plugin config directory where the playlists and config files will be saved"
+                        IsReadOnly="True"
+                        Height="20"
+                        FontSize="10"
+                        Foreground="#FF1D2F3D"
+                        Margin="0,7,0,0" 
+                        VerticalAlignment="Top"
+                        Width="250" 
+                        Style="{DynamicResource TextBoxStyle}"
+                        Text="{Binding CurrentPluginPath}"></TextBox>
+
+
+ 
+            <Button 
+                ToolTip="Choose plugin path" 
+                    Margin="0,4,0,0" 
+                Height="25" 
+                Width="25" 
+                Padding="0,0,0,0"
+                Command="{Binding ChoosePluginPathCommand}" 
+                Background="#FFEAF2F8">
+                <Image Source="/Images/icons8-pluginfolder-48.png" Height="25" Width="20"/>
+            </Button>
+
+            <!--<Button 
+                ToolTip="FFXIV Characters" 
+                    Margin="0,4,0,0" 
+                Height="25" 
+                Width="25" 
+                Padding="0,0,0,0"
+                Style="{DynamicResource ButtonStyle}"
+                Command="{Binding ShowCharactersPopupCommand}" 
+                Background="#FFEAF2F8">
+                <Image Source="/Images/ffxiv.ico" Height="20" Width="20"/>
+            </Button>-->
+        </StackPanel>
+
+        
+    </Grid>
+
+    <ItemsControl   ItemsSource="{Binding Clients}" BorderThickness="0" Margin="5,5,5,0"  
+                         ScrollViewer.VerticalScrollBarVisibility="Disabled"
+                         ScrollViewer.HorizontalScrollBarVisibility="Disabled" Background="#FF151F27">
+
+        <ItemsControl.ItemTemplate>
+            <DataTemplate>
+                <StackPanel Orientation="Horizontal" >
+                    <Button
+                        Visibility="{Binding IsConnected, Converter={StaticResource InverseBoolToVisibilityConverter}}"
+                                            Style="{DynamicResource FlatButtonStyle}"
+                    ToolTip="Connect">
+                        <Image Source="../../Images/icons8-connect-48.png" Height="25" Width="20">
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="MouseLeftButtonDown">
+                                    <cmd:EventToCommand PassEventArgsToCommand="True" Command="{Binding ConnectCommand}"/>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                        </Image>
+
+                    </Button>
+
+                    <Button
+                        Visibility="{Binding IsConnected, Converter={StaticResource BoolToVisibilityConverter}}"
+                                Style="{DynamicResource FlatButtonStyle}"
+                    ToolTip="Disconnect">
+                        <Image Source="../../Images/icons8-disconnect-48.png" Height="18" Width="18">
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="MouseLeftButtonDown">
+                                    <cmd:EventToCommand PassEventArgsToCommand="True" Command="{Binding DisconnectCommand}"/>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                        </Image>
+
+                    </Button>
+                    <Label     FontSize="10" Content="{Binding CharacterName}" Foreground="#d0969cb0"></Label>
+                    <Image ToolTip="Connected" Margin="-4,-6,0,0" Source="/Images/icons8-done-48.png" Height="20" Width="20" Visibility="{Binding IsConnected, Converter={StaticResource BoolToVisibilityConverter}}"/>
+
+
+
+
+                </StackPanel>
+            </DataTemplate>
+        </ItemsControl.ItemTemplate>
+    </ItemsControl>
+
+
+</StackPanel>

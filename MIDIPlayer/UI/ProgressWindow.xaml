@@ -1,0 +1,25 @@
+﻿<Window x:Class="Hscm.UI.ProgressWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Hscm.UI"
+        xmlns:controls="clr-namespace:Hscm.UI.Controls"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterOwner"
+        Title="ProgressWindow" Height="100" Width="400" Topmost="True" ShowInTaskbar="False" WindowStyle="None"  ResizeMode="NoResize" SizeToContent="Width">
+    <StackPanel>
+
+        <Label Content="{Binding LoadingText}"></Label>
+
+        <StackPanel Orientation="Horizontal">
+            <ProgressBar Margin="5,0,0,0" Value="{Binding PercentComplete}" Visibility="Visible" Width="400" Height="15">
+                <ProgressBar.Foreground>
+                    <SolidColorBrush Color="{DynamicResource Color_035}"/>
+                </ProgressBar.Foreground>
+            </ProgressBar>
+            <Label Content="{Binding PercentText}"></Label>
+        </StackPanel>
+
+    </StackPanel>
+</Window>

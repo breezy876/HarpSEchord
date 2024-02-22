@@ -1,0 +1,1003 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{10B3FDF0-CFCE-4DE2-8048-42236A38DB2A}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Hscm</RootNamespace>
+    <AssemblyName>Hscm</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <PublishUrl>C:\Users\Chris\Documents\release\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>B0D1B002AA51F4EFC087D083897BE4DF43290B61</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>MIDIPlayer_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>false</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>
+    </StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationFramework.Aero2" />
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Remoting" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="DrumMapper.cs" />
+    <Compile Include="IPC\ClientManager.cs" />
+    <Compile Include="IPC\MessageHandler.cs" />
+    <Compile Include="IPC\Senders\MessageSender.Misc.cs" />
+    <Compile Include="IPC\Senders\MessageSender.Playback.cs" />
+    <Compile Include="Extensions.cs" />
+    <Compile Include="Helpers\MiscHelpers.cs" />
+    <Compile Include="Helpers\UI.cs" />
+    <Compile Include="Models\FfxivClient.cs" />
+    <Compile Include="UI\Bindings\VisibleBinding.cs" />
+    <Compile Include="UI\Controls\CharactersPanel.xaml.cs">
+      <DependentUpon>CharactersPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Controls\FfxivControl.xaml.cs">
+      <DependentUpon>FfxivControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Controls\InstrumentPanel.xaml.cs">
+      <DependentUpon>InstrumentPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Controls\ProgressControl.xaml.cs">
+      <DependentUpon>ProgressControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Controls\Settings\PlaylistSettingsControl.xaml.cs">
+      <DependentUpon>PlaylistSettingsControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Controls\Settings\SettingsControl.xaml.cs">
+      <DependentUpon>SettingsControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Controls\SpinnerControl.xaml.cs">
+      <DependentUpon>SpinnerControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\EventHandlers\MainWindow.Notifications.Handlers.Ipc.cs" />
+    <Compile Include="UI\EventHandlers\MainWindow.Notifications.Handlers.MidiControl.cs" />
+    <Compile Include="UI\MainWindow\MainWindow.MidiControl.Notifications.cs" />
+    <Compile Include="UI\MainWindow\MainWindow.Player.cs" />
+    <Compile Include="UI\MainWindow\MainWindow.Playlist.FileWatcher.cs" />
+    <Compile Include="UI\MainWindow\MainWindow.IPC.cs" />
+    <Compile Include="UI\Notifications\Ensemble\ChangeConductorNotification.cs" />
+    <Compile Include="UI\Notifications\Ensemble\ConductEnsembleNotification.cs" />
+    <Compile Include="UI\Notifications\Ensemble\CorrectSyncNotification.cs" />
+    <Compile Include="UI\Notifications\Ensemble\GenerateEnsembleNotification.cs" />
+    <Compile Include="UI\Notifications\Ensemble\JoinEnsembleNotification.cs" />
+    <Compile Include="UI\Notifications\Ensemble\LeaveEnsembleNotification.cs" />
+    <Compile Include="UI\Notifications\Ensemble\ManageParticipantNotification.cs" />
+    <Compile Include="UI\Notifications\Ensemble\MemberAddedNotification.cs" />
+    <Compile Include="UI\Notifications\Ensemble\MemberRemovedNotification.cs" />
+    <Compile Include="UI\Notifications\Ensemble\ParticipantJoinedNotification.cs" />
+    <Compile Include="UI\Notifications\Ensemble\ParticipantLeftNotification.cs" />
+    <Compile Include="UI\Notifications\Ensemble\ParticipantSelectedNotification.cs" />
+    <Compile Include="UI\Notifications\Ensemble\ReadyCheckNotification.cs" />
+    <Compile Include="UI\Notifications\Ensemble\StopConductingNotification.cs" />
+    <Compile Include="UI\Notifications\Ensemble\ToggleEnsembleVisibleNotification.cs" />
+    <Compile Include="UI\Notifications\FollowLeaderNotification.cs" />
+    <Compile Include="UI\Notifications\Ffxiv\ChoosePluginPathNotification.cs" />
+    <Compile Include="UI\Notifications\Ffxiv\ConnectFfxivClientNotification.cs" />
+    <Compile Include="UI\Notifications\Ffxiv\FfxivReloadPlaylistNotification.cs" />
+    <Compile Include="UI\Notifications\Playlist\PopulateFromPlaylistChangedNotification.cs" />
+    <Compile Include="UI\Notifications\Playlist\PlaylistChangedNotification.cs" />
+    <Compile Include="UI\Notifications\Playlist\SaveSongSettingsNotification.cs" />
+    <Compile Include="UI\Notifications\SeekChangedNotification.cs" />
+    <Compile Include="UI\Notifications\SeekMouseLeftButtonDownNotification.cs" />
+    <Compile Include="UI\Notifications\Settings\SaveAppSettingsNotification.cs" />
+    <Compile Include="UI\Notifications\TargetLeaderNotification.cs" />
+    <Compile Include="UI\Notifications\PerformFormationNotification.cs" />
+    <Compile Include="UI\Notifications\LaunchFfxivNotificatio.cs" />
+    <Compile Include="UI\Notifications\SelectGameMenuNotification.cs" />
+    <Compile Include="UI\Notifications\Tracks\CloseInstrumentsNotification.cs" />
+    <Compile Include="UI\Notifications\Tracks\ToggleInstrumentsNotification.cs" />
+    <Compile Include="UI\Notifications\Tracks\UpdateCharactersNotification.cs" />
+    <Compile Include="UI\Notifications\Tracks\CharacterToggledNotification.cs" />
+    <Compile Include="UI\Notifications\Tracks\ShowCharactersPopupNotification.cs" />
+    <Compile Include="UI\Notifications\Tracks\TrimTracksNotification.cs" />
+    <Compile Include="UI\Notifications\Tracks\RemoveAllTracksNotification.cs" />
+    <Compile Include="UI\Notifications\Tracks\SplitPercussionNotification.cs" />
+    <Compile Include="UI\Notifications\Tracks\InstrumentChangedNotification.cs" />
+    <Compile Include="UI\Notifications\Tracks\DuplicateTrackNotification.cs" />
+    <Compile Include="UI\Notifications\Tracks\ShowInstrumentsPopupNotification.cs" />
+    <Compile Include="UI\Notifications\Tracks\TrackInstrumentChosenNotification.cs" />
+    <Compile Include="UI\Notifications\Tracks\RemoveTracksNotification.cs" />
+    <Compile Include="UI\Notifications\UpdateSelectedSequenceNotification.cs" />
+    <Compile Include="UI\Notifications\Playlist\CopyPlaylistNotification.cs" />
+    <Compile Include="UI\Notifications\Playlist\SavePlaylistNotification.cs" />
+    <Compile Include="UI\Notifications\Playlist\UpdatePlaylistItemDurationNotification.cs" />
+    <Compile Include="UI\MainWindow\MainWindow.Misc.cs" />
+    <Compile Include="UI\MainWindow\MainWindow.Sequence.cs" />
+    <Compile Include="UI\MainWindow\MainWindow.Settings.cs" />
+    <Compile Include="UI\Notifications\Playlist\ToggleGroupsNotification.cs" />
+    <Compile Include="UI\Notifications\Playlist\ItemsChangedNotification.cs" />
+    <Compile Include="UI\Converters\InverseBoolToVisibilityConverter.cs" />
+    <Compile Include="UI\Converters\InverseBooleanConverter.cs" />
+    <Compile Include="UI\MainWindow\MainWindow.Playlist.cs" />
+    <Compile Include="UI\MainWindow\MainWindow.Notifications.cs" />
+    <Compile Include="UI\Notifications\AnnounceNotification.cs" />
+    <Compile Include="UI\Notifications\Playlist\ExpandGroupsNotification.cs" />
+    <Compile Include="UI\Notifications\Playlist\CollapseGroupsNotification.cs" />
+    <Compile Include="UI\Notifications\SeekMouseLeaveNotification.cs" />
+    <Compile Include="UI\Notifications\SeekMouseEnterNotification.cs" />
+    <Compile Include="UI\Notifications\SeekMouseWheelNotification.cs" />
+    <Compile Include="UI\Notifications\Window\LayoutChangedNotification.cs" />
+    <Compile Include="UI\Notifications\Window\GameWindowExitedNotification.cs" />
+    <Compile Include="UI\Notifications\Playlist\LoadSongSettingsNotification.cs" />
+    <Compile Include="UI\Controls\LogControl.xaml.cs">
+      <DependentUpon>LogControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Notifications\Playlist\ShowSaveSongSettingsDialogNotification.cs" />
+    <Compile Include="UI\Notifications\Window\GameWindowFoundNotification.cs" />
+    <Compile Include="UI\Notifications\AddLogNotification.cs" />
+    <Compile Include="UI\Notifications\TempoMouseEnterNotification.cs" />
+    <Compile Include="UI\Notifications\TempoResetNotification.cs" />
+    <Compile Include="UI\Notifications\TempoRevertNotification.cs" />
+    <Compile Include="UI\Notifications\TempoShiftNotification.cs" />
+    <Compile Include="UI\Notifications\UpdateInfoNotification.cs" />
+    <Compile Include="UI\Notifications\TempoMouseWheelNotification.cs" />
+    <Compile Include="UI\Notifications\Window\ShowSendCommandWindowNotification.cs" />
+    <Compile Include="UI\Notifications\Window\ShowSelectConductorWindowNotification.cs" />
+    <Compile Include="UI\Notifications\ShowMessageNotification.cs" />
+    <Compile Include="UI\Controls\TracksControl.xaml.cs">
+      <DependentUpon>TracksControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Controls\FileAddCompleteEventArgs.cs" />
+    <Compile Include="UI\Controls\InfoControl.xaml.cs">
+      <DependentUpon>InfoControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Controls\PlaylistControl.xaml.cs">
+      <DependentUpon>PlaylistControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Notifications\Playlist\PlaylistFilterNotification.cs" />
+    <Compile Include="UI\EventHandlers\MainWindow.Event.Ipc.Handlers.cs" />
+    <Compile Include="UI\EventHandlers\MainWindow.Event.MidiProcessor.Handlers.cs" />
+    <Compile Include="UI\EventHandlers\MainWindow.Event.Playlist.Handlers.cs" />
+    <Compile Include="UI\EventHandlers\MainWindow.Event.UI.Handlers.cs" />
+    <Compile Include="UI\Notifications\Playlist\SavePlaylistSettingsNotification.cs" />
+    <Compile Include="UI\Notifications\Playlist\PlaylistDropNotification.cs" />
+    <Compile Include="UI\Notifications\Playlist\PlaylistEmptyNotification.cs" />
+    <Compile Include="UI\Notifications\Playlist\PlaylistSequenceChangedNotification.cs" />
+    <Compile Include="UI\Notifications\Playlist\RefreshPlaylistNotification.cs" />
+    <Compile Include="UI\Notifications\Playlist\PlaylistSequenceSelectedNotification.cs" />
+    <Compile Include="UI\Notifications\Playlist\PlaylistLoadedNotification.cs" />
+    <Compile Include="UI\Notifications\Playlist\ChangePlaylistIndexNotification.cs" />
+    <Compile Include="UI\Notifications\Playlist\ShowSequenceTracksNotification.cs" />
+    <Compile Include="UI\Notifications\Playlist\TogglePlaylistNotification.cs" />
+    <Compile Include="UI\Notifications\Settings\AlwaysOnTopNotification.cs" />
+    <Compile Include="UI\Notifications\Settings\Pipe\PipeTracksWindowChangeNotification.cs" />
+    <Compile Include="UI\Notifications\Settings\Pipe\PipeSettingsWindowChangeNotification.cs" />
+    <Compile Include="UI\Notifications\Settings\SequenceChordSettingsChangedNotification.cs" />
+    <Compile Include="UI\Notifications\Settings\SequenceOctaveChangeNotification.cs" />
+    <Compile Include="UI\Notifications\SequenceTempoUpdatedNotification.cs" />
+    <Compile Include="UI\Notifications\Settings\PlaybackNoteDelayChangedNotification.cs" />
+    <Compile Include="UI\Notifications\Settings\SaveSettingsNotification.cs" />
+    <Compile Include="UI\Notifications\Tracks\ChangeTracksNotification.cs" />
+    <Compile Include="UI\Notifications\Tracks\TrackMutedNotification.cs" />
+    <Compile Include="UI\Notifications\Tracks\TrackChangedNotification.cs" />
+    <Compile Include="UI\Notifications\Tracks\KeyOffsetChangedNotification.cs" />
+    <Compile Include="UI\Notifications\Tracks\OctaveOffsetChangedNotification.cs" />
+    <Compile Include="UI\Notifications\Window\ReportProgressNotification.cs" />
+    <Compile Include="UI\Notifications\Window\HideProgressNotification.cs" />
+    <Compile Include="UI\Notifications\Window\ShowProgressNotification.cs" />
+    <Compile Include="UI\ProgressWindow.xaml.cs">
+      <DependentUpon>ProgressWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Services\LogService.cs" />
+    <Compile Include="UI\Services\ToastService.cs" />
+    <Compile Include="UI\ViewModels\CharacterViewModel.cs" />
+    <Compile Include="UI\Notifications\Playlist\ClearPlaylistFilterNotitification.cs" />
+    <Compile Include="UI\ViewModels\MainWindow\MainWindowViewModel.Player.cs" />
+    <Compile Include="UI\ViewModels\Ffxiv\FfxivClientViewModel.cs" />
+    <Compile Include="UI\ViewModels\Ffxiv\FfxivViewModel.cs" />
+    <Compile Include="UI\ViewModels\LogViewModel.cs" />
+    <Compile Include="UI\ViewModels\MainWindow\MainWindowViewModel.Song.Settings.cs" />
+    <Compile Include="UI\Notifications\Window\RestoreGameWindowsNotification.cs" />
+    <Compile Include="UI\Enums.cs" />
+    <Compile Include="UI\Converters\ComparisonConverter.cs" />
+    <Compile Include="UI\IconHelper.cs" />
+    <Compile Include="UI\Notifications\PlayFileNotification.cs" />
+    <Compile Include="UI\Notifications\Playlist\OpenPlaylistNotification.cs" />
+    <Compile Include="UI\Notifications\Playlist\AddPlaylistDirectoryNotification.cs" />
+    <Compile Include="UI\Notifications\Playlist\SavePlaylistAsNotification.cs" />
+    <Compile Include="UI\Notifications\Playlist\AddPlaylistFileNotification.cs" />
+    <Compile Include="UI\Notifications\ReloadSequenceNotification.cs" />
+    <Compile Include="UI\Notifications\SequenceTempoChangedNotification.cs" />
+    <Compile Include="UI\Notifications\Tracks\TrackHasResetNotification.cs" />
+    <Compile Include="UI\Notifications\Tracks\EnableTrackNotification.cs" />
+    <Compile Include="UI\Notifications\Tracks\DisableTrackNotification.cs" />
+    <Compile Include="UI\Notifications\TransposeSequenceNotification.cs" />
+    <Compile Include="UI\Notifications\Tracks\TransposeTrackNotification.cs" />
+    <Compile Include="UI\Notifications\SequenceProcessedNotification.cs" />
+    <Compile Include="UI\Notifications\SequenceLoadedNotification.cs" />
+    <Compile Include="UI\Notifications\SequenceNotification.cs" />
+    <Compile Include="UI\Notifications\Settings\MidiPlaybackPreviewNotification.cs" />
+    <Compile Include="UI\Notifications\Settings\MidiPlaybackOriginalNotification.cs" />
+    <Compile Include="UI\Notifications\SendPianoNotification.cs" />
+    <Compile Include="UI\Notifications\Settings\DisableSoundNotification.cs" />
+    <Compile Include="UI\Notifications\Settings\EnableSoundNotification.cs" />
+    <Compile Include="UI\Notifications\Window\HidePianoNotification.cs" />
+    <Compile Include="UI\Notifications\Window\HideTracksNotification.cs" />
+    <Compile Include="UI\Notifications\Window\ShowTracksNotification.cs" />
+    <Compile Include="UI\Notifications\Window\ShowPianoNotification.cs" />
+    <Compile Include="UI\Controls\PianoKeyEventArgs.cs" />
+    <Compile Include="UI\Controls\SpinButton.xaml.cs">
+      <DependentUpon>SpinButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Converters\ArrayItemSelector.cs" />
+    <Compile Include="UI\Converters\BoolToVisibilityConverter.cs" />
+    <Compile Include="UI\ViewModels\MainWindow\MainWindowPlayerToolbarViewModel.cs" />
+    <Compile Include="UI\ViewModels\MainWindow\MainWindowViewModel.cs" />
+    <Compile Include="UI\Notifications\Playlist\OpenPlaylistSettingsNotification.cs" />
+    <Compile Include="UI\Notifications\Playlist\LoadCurrentSongSettingsNotification.cs" />
+    <Compile Include="UI\Notifications\Playlist\MoveDownNotification.cs" />
+    <Compile Include="UI\Notifications\Playlist\MoveUpNotification.cs" />
+    <Compile Include="UI\Notifications\Playlist\NewPlaylistNotification.cs" />
+    <Compile Include="UI\ViewModels\Playlist\PlaylistItemViewModel.cs" />
+    <Compile Include="UI\ViewModels\Playlist\PlaylistMenuViewModel.cs" />
+    <Compile Include="UI\ViewModels\InfoViewModel.cs" />
+    <Compile Include="UI\Notifications\Playlist\TogglePlaylistFilterNotification.cs" />
+    <Compile Include="UI\Notifications\SendCommandNotification.cs" />
+    <Compile Include="UI\ViewModels\ProgressViewModel.cs" />
+    <Compile Include="UI\Notifications\Playlist\ChangeSettingsFileNotification.cs" />
+    <Compile Include="UI\ViewModels\Settings\Controls\PlaylistSettingsViewModel.cs" />
+    <Compile Include="UI\ViewModels\Settings\SettingsViewModel.cs" />
+    <Compile Include="UI\ViewModels\Settings\Tabs\AutomationTabViewModel.cs" />
+    <Compile Include="UI\ViewModels\Settings\Tabs\TracksTabViewModel.cs" />
+    <Compile Include="UI\ViewModels\Settings\Tabs\GeneralTabViewModel.cs" />
+    <Compile Include="UI\ViewModels\ComboBoxTextItemViewModel.cs" />
+    <Compile Include="UI\ViewModels\Playlist\PlaylistViewModel.cs" />
+    <Compile Include="UI\Notifications\Tracks\TrackEnsembleMemberChangedNotification.cs" />
+    <Compile Include="UI\ViewModels\Tracks\CharactersPanelViewModel.cs" />
+    <Compile Include="UI\ViewModels\Tracks\InstrumentPanelViewModel.cs" />
+    <Compile Include="UI\ViewModels\Tracks\TrackViewModel.cs" />
+    <Compile Include="UI\ViewModels\ComboBoxItemViewModel.cs" />
+    <Compile Include="UI\ViewModels\ComboBoxViewModel.cs" />
+    <Compile Include="UI\ViewModels\ObservableViewModel.cs" />
+    <Compile Include="UI\ViewModels\Tracks\TracksViewModel.cs" />
+    <Compile Include="UI\ViewModels\ValueViewModel.cs" />
+    <Page Include="Themes\IG\IG.MSControls.Core.Implicit.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\IG\IG.MSControls.Toolkit.Implicit.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\IG\Styles.Shared.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\IG\Styles.WPF.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\IG\Theme.Colors.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Metro\Metro.MSControls.Core.Implicit.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Metro\Metro.MSControls.Toolkit.Implicit.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Metro\Styles.Shared.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Metro\Styles.WPF.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Metro\Theme.Colors.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Controls\CharactersPanel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Controls\FfxivControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Controls\InstrumentPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Controls\LogControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Controls\ProgressControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Controls\Settings\PlaylistSettingsControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Controls\Settings\SettingsControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Controls\SpinnerControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Controls\TracksControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Controls\InfoControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Controls\PlaylistControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Controls\SpinButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UI\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="UI\ProgressWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="app.manifest" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="UI\EventHandlers\MainWindow.Notification.Handlers.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{8d1cfb96-a0ff-434c-8260-2991cf0d3846}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\add-music-file.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\add-music-folder.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\icons8-about-48.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\icons8-add-file-48.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\icons8-add-folder-48.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\icons8-add-row-48.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\icons8-ascending-sorting-48.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\icons8-audio-file-50.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\icons8-category-48.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\icons8-copy-48.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\icons8-copy-50.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\icons8-copy-to-clipboard-50.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\icons8-cut-50.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\icons8-delete-48.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\icons8-delete-row-48.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\icons8-delete-table-50.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\icons8-descending-sorting-48.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\icons8-down-arrow-50.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\icons8-edit-file-48.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\icons8-edit-row-50.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\icons8-end-50.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\icons8-fast-forward-50.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\icons8-file-48.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\icons8-film-soundtracks-48.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\icons8-filter-48.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\icons8-folder-48.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\icons8-insert-row-50.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\icons8-insert-row-above-48.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\icons8-insert-table-48.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\icons8-list-48.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\icons8-music-48.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\icons8-music-folder-48.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\icons8-music-notation-50.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\icons8-musical-48.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\icons8-musical-notes-48.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\icons8-paste-50.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\icons8-pause-50.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\icons8-piano-50.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\icons8-play-50.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\icons8-playlist-50.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\icons8-question-mark-48.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\icons8-repeat-50.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\icons8-replicate-rows-50.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\icons8-resume-button-50.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\icons8-rewind-50.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\icons8-row-50.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\icons8-save-48.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\icons8-save-as-48.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\icons8-search-50.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\icons8-search-property-50.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\icons8-select-all-50.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\icons8-select-row-50.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\icons8-settings-48.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\icons8-skip-to-start-50.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\icons8-slider-48.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\icons8-smart-playlist-48.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\icons8-sort-down-50.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\icons8-sorting-48.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\icons8-stop-50.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\icons8-time-50.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\icons8-time-span-50.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\icons8-timer-50.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\icons8-trash-48.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\icons8-treble-clef-50.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\icons8-tune-48.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\icons8-up-48.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\instruments\1.png" />
+    <Resource Include="Images\instruments\10.png" />
+    <Resource Include="Images\instruments\11.png" />
+    <Resource Include="Images\instruments\12.png" />
+    <Resource Include="Images\instruments\13.png" />
+    <Resource Include="Images\instruments\14.png" />
+    <Resource Include="Images\instruments\15.png" />
+    <Resource Include="Images\instruments\16.png" />
+    <Resource Include="Images\instruments\17.png" />
+    <Resource Include="Images\instruments\18.png" />
+    <Resource Include="Images\instruments\19.png" />
+    <Resource Include="Images\instruments\2.png" />
+    <Resource Include="Images\instruments\20.png" />
+    <Resource Include="Images\instruments\21.png" />
+    <Resource Include="Images\instruments\22.png" />
+    <Resource Include="Images\instruments\23.png" />
+    <Resource Include="Images\instruments\24.png" />
+    <Resource Include="Images\instruments\25.png" />
+    <Resource Include="Images\instruments\26.png" />
+    <Resource Include="Images\instruments\27.png" />
+    <Resource Include="Images\instruments\28.png" />
+    <Resource Include="Images\instruments\3.png" />
+    <Resource Include="Images\instruments\4.png" />
+    <Resource Include="Images\instruments\5.png" />
+    <Resource Include="Images\instruments\6.png" />
+    <Resource Include="Images\instruments\7.png" />
+    <Resource Include="Images\instruments\8.png" />
+    <Resource Include="Images\instruments\9.png" />
+    <Resource Include="Images\open_playlist.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icons8-processor-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icons8-keyboard-48.png" />
+    <Resource Include="Images\icons8-speaker-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icons8-deezer-50.png" />
+    <Resource Include="Images\icons8-music-record-50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icons8-sort-up-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6.1 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icons8-reset-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icons8-reset-28.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icons8-forward-48.png" />
+    <Resource Include="Images\icons8-mute-48.png" />
+    <Resource Include="Images\icons8-repeat-one-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icons8-musical-notes-48-2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icons8-mouse-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icons8-musical-notes-48-3.png" />
+    <Resource Include="Images\icons8-musical-notes-48-4.png" />
+    <Resource Include="Images\icons8-musical-notes-48-5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icons8-music-conductor-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Extended.Wpf.Toolkit">
+      <Version>3.8.1</Version>
+    </PackageReference>
+    <PackageReference Include="Infragistics.Themes.IG.Wpf">
+      <Version>1.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="Infragistics.Themes.MetroLight.Wpf">
+      <Version>1.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="Melanchall.DryWetMidi">
+      <Version>6.1.1</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.WindowsAPICodePack-Shell">
+      <Version>1.1.0</Version>
+    </PackageReference>
+    <PackageReference Include="MvvmLight">
+      <Version>5.4.1.1</Version>
+    </PackageReference>
+    <PackageReference Include="MVVMLight.Messaging">
+      <Version>1.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>12.0.3</Version>
+    </PackageReference>
+    <PackageReference Include="Sanford.Multimedia.Midi">
+      <Version>6.6.0</Version>
+    </PackageReference>
+    <PackageReference Include="TinyIpc">
+      <Version>4.1.3</Version>
+    </PackageReference>
+    <PackageReference Include="ToastNotifications">
+      <Version>2.5.1</Version>
+    </PackageReference>
+    <PackageReference Include="ToastNotifications.Messages">
+      <Version>2.5.1</Version>
+    </PackageReference>
+    <PackageReference Include="WindowsAPICodePack-Core">
+      <Version>1.1.2</Version>
+    </PackageReference>
+    <PackageReference Include="WPFtoolkitFramework">
+      <Version>1.0.7.5</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icons8-connected-people-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icons8-collapse-arrow-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icons8-crowd-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icons8-expand-arrow-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icons8-ctrl-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\keys.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icons8-user-groups-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icons8-cello-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icons8-electronic-music-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icons8-harp-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icons8-leave-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icons8-booklet-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icons8-clipboard-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icons8-graph-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icons8-fantasy-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icons8-remove-user-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icons8-add-user-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icons8-trumpet-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ready-check.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icons8-automation-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icons8-announce-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icons8-collapse-48.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icons8-expand-48.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icons8-trash-can-48.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icons8-refresh-48.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icons8-ai-48.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icons8-clear-filter-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icons8-mute-all-48.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icons8-refresh-all-48.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icons8-unmute-all-48.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icons8-restore-window-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icons8-orchestra-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icons8-run-command-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icons8-trim-chords.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icons8-trim-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icons8-down-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icons8-hierarchy-48.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icons8-music-conductor2-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icons8-view-details-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icons8-layout-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="README.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icons8-copy-music-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ffxiv.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icons8-cursor-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icons8-start-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icons8-form-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icons8-rename-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icons8-people-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icons8-target-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icons8-foot-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icons8-follow-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icon.ico" />
+    <Resource Include="Images\icons8-drums-48.png" />
+    <Resource Include="Themes\IG\HowToApplyTheme.txt" />
+    <Resource Include="Images\icons8-cello-close-48.png" />
+    <Resource Include="Images\midibard.png" />
+    <Resource Include="Images\icons8-connect-48.png" />
+    <Resource Include="Images\icons8-pluginfolder-48.png" />
+    <Resource Include="Images\icons8-plugin-48.png" />
+    <Resource Include="Images\icons8-disconnect-48.png" />
+    <Resource Include="Images\icons8-done-48.png" />
+    <Resource Include="Images\icons8-repeat-48.png" />
+    <Resource Include="Images\icons8-shuffle-48.png" />
+    <Resource Include="Images\icons8-single-repeat-48.png" />
+    <Resource Include="Images\icons8-up-left-64.png" />
+    <Resource Include="Images\icons8-list-64.png" />
+    <Content Include="WorkerService.exe" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="IO\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

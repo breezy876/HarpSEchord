@@ -1,0 +1,351 @@
+﻿<UserControl x:Class="Hscm.UI.InstrumentPanel"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Hscm.UI.Controls"
+                         xmlns:UI="clr-namespace:Hscm.UI" xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" xmlns:cmd="http://www.galasoft.ch/mvvmlight"
+             mc:Ignorable="d" BorderThickness="0" UseLayoutRounding="true">
+
+    
+            <UserControl.Resources>
+        <Style TargetType="{x:Type Image}">
+            <Setter Property="ToolTipService.InitialShowDelay" 
+            Value="50"/>
+            <Setter Property="ToolTipService.ShowDuration" 
+            Value="2000"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="true">
+                    <Setter Property="Opacity" Value="1" />
+                </Trigger>
+
+                <Trigger Property="IsMouseOver" Value="false">
+                    <Setter Property="Opacity" Value="0.7" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+
+
+    </UserControl.Resources>
+
+
+    <Border BorderBrush="#FF5E6270" BorderThickness="1" CornerRadius="3" >
+
+
+        <Grid >
+
+            <!-- Rounded mask (stretches to fill Grid) -->
+            <Border Name="mask" Background="White" CornerRadius="3"/>
+
+            <!-- Main content container -->
+            <StackPanel Background="#FF151F27">
+  
+                <!-- Use a VisualBrush of 'mask' as the opacity mask -->
+                <StackPanel.OpacityMask>
+                    <VisualBrush Visual="{Binding ElementName=mask}"/>
+                </StackPanel.OpacityMask>
+
+                <StackPanel Orientation="Horizontal" Margin="5,5,0,0">
+                    <Image Source="../../Images/instruments/1.png" Height="30" Width="30" Name="Harp" ToolTip="Harp">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="MouseLeftButtonDown">
+                                <cmd:EventToCommand PassEventArgsToCommand="True" Command="{Binding InstrumentSelectedCommand }"/>
+                            </i:EventTrigger>
+                            <i:EventTrigger EventName="MouseEnter">
+                                <cmd:EventToCommand PassEventArgsToCommand="True" Command="{Binding InstrumentMouseEnterCommand }"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </Image>
+                    <Image Source="../../Images/instruments/2.png" Height="30" Width="30" Margin="5,0,0,0" Name="Piano" ToolTip="Piano">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="MouseLeftButtonDown">
+                                <cmd:EventToCommand PassEventArgsToCommand="True" Command="{Binding InstrumentSelectedCommand }"/>
+                            </i:EventTrigger>
+                            <i:EventTrigger EventName="MouseEnter">
+                                <cmd:EventToCommand PassEventArgsToCommand="True" Command="{Binding InstrumentMouseEnterCommand }"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </Image>
+                    <Image Source="../../Images/instruments/3.png" Height="30" Width="30" Margin="5,0,0,0" Name="Lute" ToolTip="Lute">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="MouseLeftButtonDown">
+                                <cmd:EventToCommand PassEventArgsToCommand="True" Command="{Binding InstrumentSelectedCommand }"/>
+                            </i:EventTrigger>
+                            <i:EventTrigger EventName="MouseEnter">
+                                <cmd:EventToCommand PassEventArgsToCommand="True" Command="{Binding InstrumentMouseEnterCommand }"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </Image>
+                    <Image Source="../../Images/instruments/4.png" Height="30" Width="30" Margin="5,0,0,0" Name="Fiddle" ToolTip="Fiddle">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="MouseLeftButtonDown">
+                                <cmd:EventToCommand PassEventArgsToCommand="True" Command="{Binding InstrumentSelectedCommand }"/>
+                            </i:EventTrigger>
+                            <i:EventTrigger EventName="MouseEnter">
+                                <cmd:EventToCommand PassEventArgsToCommand="True" Command="{Binding InstrumentMouseEnterCommand }"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </Image>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,5,5,0">
+                    <Image Source="../../Images/instruments/5.png" Height="30" Width="30" Margin="5,0,0,0" Name="Flute" ToolTip="Flute">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="MouseLeftButtonDown">
+                                <cmd:EventToCommand PassEventArgsToCommand="True" Command="{Binding InstrumentSelectedCommand }"/>
+                            </i:EventTrigger>
+                            <i:EventTrigger EventName="MouseEnter">
+                                <cmd:EventToCommand PassEventArgsToCommand="True" Command="{Binding InstrumentMouseEnterCommand }"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </Image>
+                    <Image Source="../../Images/instruments/6.png" Height="30" Width="30" Margin="5,0,0,0" Name="Oboe" ToolTip="Oboe">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="MouseLeftButtonDown">
+                                <cmd:EventToCommand PassEventArgsToCommand="True" Command="{Binding InstrumentSelectedCommand }"/>
+                            </i:EventTrigger>
+                            <i:EventTrigger EventName="MouseEnter">
+                                <cmd:EventToCommand PassEventArgsToCommand="True" Command="{Binding InstrumentMouseEnterCommand }"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </Image>
+                    <Image Source="../../Images/instruments/7.png" Height="30" Width="30" Margin="5,0,0,0" Name="Clarinet" ToolTip="Clarinet">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="MouseLeftButtonDown">
+                                <cmd:EventToCommand PassEventArgsToCommand="True" Command="{Binding InstrumentSelectedCommand }"/>
+                            </i:EventTrigger>
+                            <i:EventTrigger EventName="MouseEnter">
+                                <cmd:EventToCommand PassEventArgsToCommand="True" Command="{Binding InstrumentMouseEnterCommand }"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </Image>
+                    <Image Source="../../Images/instruments/8.png" Height="30" Width="30" Margin="5,0,0,0" Name="Fife" ToolTip="Fife">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="MouseLeftButtonDown">
+                                <cmd:EventToCommand PassEventArgsToCommand="True" Command="{Binding InstrumentSelectedCommand }"/>
+                            </i:EventTrigger>
+                            <i:EventTrigger EventName="MouseEnter">
+                                <cmd:EventToCommand PassEventArgsToCommand="True" Command="{Binding InstrumentMouseEnterCommand }"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </Image>
+                    <Image Source="../../Images/instruments/9.png" Height="30" Width="30" Margin="5,0,0,0" Name="Panpipes" ToolTip="Panpipes">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="MouseLeftButtonDown">
+                                <cmd:EventToCommand PassEventArgsToCommand="True" Command="{Binding InstrumentSelectedCommand }"/>
+                            </i:EventTrigger>
+                            <i:EventTrigger EventName="MouseEnter">
+                                <cmd:EventToCommand PassEventArgsToCommand="True" Command="{Binding InstrumentMouseEnterCommand }"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </Image>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,5,5,0">
+                    <Image Source="../../Images/instruments/10.png" Height="30" Width="30" Margin="5,0,0,0" Name="Timpani" ToolTip="Timpani">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="MouseLeftButtonDown">
+                                <cmd:EventToCommand PassEventArgsToCommand="True" Command="{Binding InstrumentSelectedCommand }"/>
+                            </i:EventTrigger>
+                            <i:EventTrigger EventName="MouseEnter">
+                                <cmd:EventToCommand PassEventArgsToCommand="True" Command="{Binding InstrumentMouseEnterCommand }"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </Image>
+                    <Image Source="../../Images/instruments/11.png" Height="30" Width="30" Margin="5,0,0,0" Name="Bongo" ToolTip="Bongo">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="MouseLeftButtonDown">
+                                <cmd:EventToCommand PassEventArgsToCommand="True" Command="{Binding InstrumentSelectedCommand }"/>
+                            </i:EventTrigger>
+                            <i:EventTrigger EventName="MouseEnter">
+                                <cmd:EventToCommand PassEventArgsToCommand="True" Command="{Binding InstrumentMouseEnterCommand }"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </Image>
+                    <Image Source="../../Images/instruments/12.png" Height="30" Width="30" Margin="5,0,0,0" Name="Bass_Drum" ToolTip="Bass Drum">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="MouseLeftButtonDown">
+                                <cmd:EventToCommand PassEventArgsToCommand="True" Command="{Binding InstrumentSelectedCommand }"/>
+                            </i:EventTrigger>
+                            <i:EventTrigger EventName="MouseEnter">
+                                <cmd:EventToCommand PassEventArgsToCommand="True" Command="{Binding InstrumentMouseEnterCommand }"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </Image>
+                    <Image Source="../../Images/instruments/13.png" Height="30" Width="30" Margin="5,0,0,0" Name="Snare_Drum" ToolTip="Snare Drum">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="MouseLeftButtonDown">
+                                <cmd:EventToCommand PassEventArgsToCommand="True" Command="{Binding InstrumentSelectedCommand }"/>
+                            </i:EventTrigger>
+                            <i:EventTrigger EventName="MouseEnter">
+                                <cmd:EventToCommand PassEventArgsToCommand="True" Command="{Binding InstrumentMouseEnterCommand }"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </Image>
+                    <Image Source="../../Images/instruments/14.png" Height="30" Width="30" Margin="5,0,0,0" Name="Cymbal" ToolTip="Cymbal">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="MouseLeftButtonDown">
+                                <cmd:EventToCommand PassEventArgsToCommand="True" Command="{Binding InstrumentSelectedCommand }"/>
+                            </i:EventTrigger>
+                            <i:EventTrigger EventName="MouseEnter">
+                                <cmd:EventToCommand PassEventArgsToCommand="True" Command="{Binding InstrumentMouseEnterCommand }"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </Image>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,5,5,0">
+                    <Image Source="../../Images/instruments/15.png" Height="30" Width="30" Margin="5,0,0,0" Name="Trumpet" ToolTip="Trumpet">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="MouseLeftButtonDown">
+                                <cmd:EventToCommand PassEventArgsToCommand="True" Command="{Binding InstrumentSelectedCommand }"/>
+                            </i:EventTrigger>
+                            <i:EventTrigger EventName="MouseEnter">
+                                <cmd:EventToCommand PassEventArgsToCommand="True" Command="{Binding InstrumentMouseEnterCommand }"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </Image>
+                    <Image Source="../../Images/instruments/16.png" Height="30" Width="30" Margin="5,0,0,0" Name="Trombone" ToolTip="Trombone">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="MouseLeftButtonDown">
+                                <cmd:EventToCommand PassEventArgsToCommand="True" Command="{Binding InstrumentSelectedCommand }"/>
+                            </i:EventTrigger>
+                            <i:EventTrigger EventName="MouseEnter">
+                                <cmd:EventToCommand PassEventArgsToCommand="True" Command="{Binding InstrumentMouseEnterCommand }"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </Image>
+                    <Image Source="../../Images/instruments/17.png" Height="30" Width="30" Margin="5,0,0,0" Name="Tuba" ToolTip="Tuba">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="MouseLeftButtonDown">
+                                <cmd:EventToCommand PassEventArgsToCommand="True" Command="{Binding InstrumentSelectedCommand }"/>
+                            </i:EventTrigger>
+                            <i:EventTrigger EventName="MouseEnter">
+                                <cmd:EventToCommand PassEventArgsToCommand="True" Command="{Binding InstrumentMouseEnterCommand }"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </Image>
+                    <Image Source="../../Images/instruments/18.png" Height="30" Width="30" Margin="5,0,0,0" Name="Horn" ToolTip="Horn">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="MouseLeftButtonDown">
+                                <cmd:EventToCommand PassEventArgsToCommand="True" Command="{Binding InstrumentSelectedCommand }"/>
+                            </i:EventTrigger>
+                            <i:EventTrigger EventName="MouseEnter">
+                                <cmd:EventToCommand PassEventArgsToCommand="True" Command="{Binding InstrumentMouseEnterCommand }"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </Image>
+                    <Image Source="../../Images/instruments/19.png" Height="30" Width="30" Margin="5,0,0,0" Name="Saxophone" ToolTip="Saxophone">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="MouseLeftButtonDown">
+                                <cmd:EventToCommand PassEventArgsToCommand="True" Command="{Binding InstrumentSelectedCommand }"/>
+                            </i:EventTrigger>
+                            <i:EventTrigger EventName="MouseEnter">
+                                <cmd:EventToCommand PassEventArgsToCommand="True" Command="{Binding InstrumentMouseEnterCommand }"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </Image>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,5,5,0">
+                    <Image Source="../../Images/instruments/20.png" Height="30" Width="30" Margin="5,0,0,0" Name="Violin" ToolTip="Violin">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="MouseLeftButtonDown">
+                                <cmd:EventToCommand PassEventArgsToCommand="True" Command="{Binding InstrumentSelectedCommand }"/>
+                            </i:EventTrigger>
+                            <i:EventTrigger EventName="MouseEnter">
+                                <cmd:EventToCommand PassEventArgsToCommand="True" Command="{Binding InstrumentMouseEnterCommand }"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </Image>
+                    <Image Source="../../Images/instruments/21.png" Height="30" Width="30" Margin="5,0,0,0" Name="Viola" ToolTip="Viola">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="MouseLeftButtonDown">
+                                <cmd:EventToCommand PassEventArgsToCommand="True" Command="{Binding InstrumentSelectedCommand }"/>
+                            </i:EventTrigger>
+                            <i:EventTrigger EventName="MouseEnter">
+                                <cmd:EventToCommand PassEventArgsToCommand="True" Command="{Binding InstrumentMouseEnterCommand }"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </Image>
+                    <Image Source="../../Images/instruments/22.png" Height="30" Width="30" Margin="5,0,0,0" Name="Cello" ToolTip="Cello">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="MouseLeftButtonDown">
+                                <cmd:EventToCommand PassEventArgsToCommand="True" Command="{Binding InstrumentSelectedCommand }"/>
+                            </i:EventTrigger>
+                            <i:EventTrigger EventName="MouseEnter">
+                                <cmd:EventToCommand PassEventArgsToCommand="True" Command="{Binding InstrumentMouseEnterCommand }"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </Image>
+                    <Image Source="../../Images/instruments/23.png" Height="30" Width="30" Margin="5,0,0,0" Name="Double_Bass" ToolTip="Double Bass">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="MouseLeftButtonDown">
+                                <cmd:EventToCommand PassEventArgsToCommand="True" Command="{Binding InstrumentSelectedCommand }"/>
+                            </i:EventTrigger>
+                            <i:EventTrigger EventName="MouseEnter">
+                                <cmd:EventToCommand PassEventArgsToCommand="True" Command="{Binding InstrumentMouseEnterCommand }"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </Image>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,5,5,5">
+                    <Image Source="../../Images/instruments/24.png" Height="30" Width="30" Margin="5,0,0,0" Name="Electric_Guitar_Overdriven" ToolTip="Electric Guitar: Overdriven">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="MouseLeftButtonDown">
+                                <cmd:EventToCommand PassEventArgsToCommand="True" Command="{Binding InstrumentSelectedCommand }" />
+                            </i:EventTrigger>
+                            <i:EventTrigger EventName="MouseEnter">
+                                <cmd:EventToCommand PassEventArgsToCommand="True" Command="{Binding InstrumentMouseEnterCommand }"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </Image>
+                    <Image Source="../../Images/instruments/25.png" Height="30" Width="30" Margin="5,0,0,0" Name="Electric_Guitar_Clean" ToolTip="Electric Guitar: Clean">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="MouseLeftButtonDown">
+                                <cmd:EventToCommand PassEventArgsToCommand="True" Command="{Binding InstrumentSelectedCommand }"/>
+                            </i:EventTrigger>
+                            <i:EventTrigger EventName="MouseEnter">
+                                <cmd:EventToCommand PassEventArgsToCommand="True" Command="{Binding InstrumentMouseEnterCommand }"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </Image>
+                    <Image Source="../../Images/instruments/26.png" Height="30" Width="30" Margin="5,0,0,0" Name="Electric_Guitar_Muted" ToolTip="Electric Guitar: Muted">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="MouseLeftButtonDown">
+                                <cmd:EventToCommand PassEventArgsToCommand="True" Command="{Binding InstrumentSelectedCommand }"/>
+                            </i:EventTrigger>
+                            <i:EventTrigger EventName="MouseEnter">
+                                <cmd:EventToCommand PassEventArgsToCommand="True" Command="{Binding InstrumentMouseEnterCommand }"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </Image>
+                    <Image Source="../../Images/instruments/27.png" Height="30" Width="30" Margin="5,0,0,0" Name="Electric_Guitar_Power_Chords" ToolTip="Electric Guitar: Power Chords">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="MouseLeftButtonDown">
+                                <cmd:EventToCommand PassEventArgsToCommand="True" Command="{Binding InstrumentSelectedCommand }"/>
+                            </i:EventTrigger>
+                            <i:EventTrigger EventName="MouseEnter">
+                                <cmd:EventToCommand PassEventArgsToCommand="True" Command="{Binding InstrumentMouseEnterCommand }"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </Image>
+                    <Image Source="../../Images/instruments/28.png" Height="30" Width="30" Margin="5,0,0,0" Name="Electric_Guitar_Special" ToolTip="Electric Guitar: Special">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="MouseLeftButtonDown">
+                                <cmd:EventToCommand PassEventArgsToCommand="True" Command="{Binding InstrumentSelectedCommand }"/>
+                            </i:EventTrigger>
+                            <i:EventTrigger EventName="MouseEnter">
+                                <cmd:EventToCommand PassEventArgsToCommand="True" Command="{Binding InstrumentMouseEnterCommand }"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </Image>
+                </StackPanel> 
+   
+            </StackPanel>
+        </Grid>
+
+
+
+
+
+
+    </Border>
+</UserControl>
